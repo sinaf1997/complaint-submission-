@@ -3,126 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resolve | Modern Complaint Management</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Complaint Management System</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <!-- Background Globes -->
   <div class="background-globes">
     <div class="globe globe-1"></div>
     <div class="globe globe-2"></div>
   </div>
 
+  <!-- Navigation -->
   <nav class="glass-nav">
-    <div class="logo">
-      <i class="fa-solid fa-layer-group"></i> Resolve
-    </div>
+    <div class="logo">Resolve</div>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#submit">Submit</a></li>
-      <li><a href="#track">Track Status</a></li>
+      <li><a href="#track">Track</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#chatbot">Chatbot</a></li>
     </ul>
   </nav>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-      <div class="hero-content">
-        <h1>We Hear You <br> <span class="gradient-text">Loud & Clear</span></h1>
-        <p>Experience the fastest way to resolve your issues. Transparent, efficient, and designed for you.</p>
-        <a href="#submit" class="btn-primary">File a Complaint</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+      <h1 class="gradient-text">Complaint Management System</h1>
+      <p>Submit your complaints easily and track their progress with a modern, responsive interface.</p>
+      <a href="#submit" class="btn-primary">Submit Complaint</a>
+    </div>
+  </section>
 
-    <!-- Submit Complaint Section -->
-    <section id="submit" class="form-section">
-      <div class="glass-card">
-        <h2><i class="fa-solid fa-pen-to-square"></i> Submit a Complaint</h2>
-        <form id="complaintForm">
-          <div class="input-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Sinaf Mekonnen" required>
-          </div>
-
-          <div class="input-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="sinafmekonnen65@gmail.com" required>
-          </div>
-
-          <div class="input-group">
-            <label for="category">Category</label>
-            <select id="category" required>
-              <option value="">Select a category</option>
-              <option value="Product">Dorm Issue</option>
-              <option value="Service">Water Issue</option>
-              <option value="Billing">Wi-fi Issue</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="input-group">
-            <label for="details">Complaint Details</label>
-            <textarea id="details" rows="5" placeholder="Describe your issue in detail..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">Submit Complaint</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Track Status Section -->
-    <section id="track" class="track-section">
-      <div class="glass-card small-card">
-        <h2><i class="fa-solid fa-magnifying-glass"></i> Track Status</h2>
-        <p>Enter your Complaint ID to check progress.</p>
-
-        <div class="search-box">
-          <input type="text" id="trackId" placeholder="e.g., CMP-123456">
-          <button id="trackBtn" class="btn-icon"><i class="fa-solid fa-arrow-right"></i></button>
+  <!-- Complaint Form -->
+  <section id="submit">
+    <div class="glass-card">
+      <h2>Submit a Complaint</h2>
+      <form id="complaintForm">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
         </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="input-group">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Wi-fi">Wi-fi Issues</option>
+            <option value="Water">Water Issues</option>
+            <option value="Dorm">Dorm Issues</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="details">Details</label>
+          <textarea id="details" rows="4" required></textarea>
+        </div>
+        <!-- Missing Part Added: File Upload -->
+        <div class="input-group">
+          <label for="attachment">Attach File/Image</label>
+          <input type="file" id="attachment">
+        </div>
+        <button type="submit" class="btn-submit">Submit Complaint</button>
+      </form>
+    </div>
+  </section>
 
-        <div id="statusResult" class="status-result hidden">
-          <div class="status-header">
-            <span id="resultId">#CMP-123456</span>
-            <span id="resultStatus" class="tag">Pending</span>
-          </div>
-          <div class="status-body">
-            <p><strong>Category:</strong> <span id="resultCategory">Service</span></p>
-            <p><strong>Date:</strong> <span id="resultDate">Oct 24, 2023</span></p>
-            <div class="admin-response">
-              <h4>Admin Response:</h4>
-              <p id="resultResponse">No response yet. Our team is looking into it.</p>
-            </div>
-            <div class="status-timeline">
-              <div class="step active">Submitted</div>
-              <div class="step" id="stepReview">In Review</div>
-              <div class="step" id="stepResolved">Resolved</div>
-            </div>
-          </div>
+  <!-- Tracking Section -->
+  <section id="track">
+    <div class="glass-card small-card">
+      <h2>Track Complaint</h2>
+      <div class="search-box">
+        <input type="text" id="trackId" placeholder="Enter Complaint ID">
+        <button id="trackBtn" class="btn-icon">Track</button>
+      </div>
+      <div id="statusResult" class="status-result hidden">
+        <div class="status-header">
+          <span><strong>ID:</strong> <span id="resultId"></span></span>
+          <span class="tag" id="resultStatus"></span>
+        </div>
+        <div class="status-body">
+          <p><strong>Category:</strong> <span id="resultCategory"></span></p>
+          <p><strong>Date:</strong> <span id="resultDate"></span></p>
+        </div>
+        <div class="admin-response">
+          <h4>Admin Response</h4>
+          <p id="resultResponse"></p>
+        </div>
+        <div class="status-timeline">
+          <div class="step">Submitted</div>
+          <div class="step">In Review</div>
+          <div class="step">Resolved</div>
         </div>
       </div>
-    </section>
-  </main>
-   <footer>
-    <p>&copy; 2024 Resolve System. Simple. Beautiful. Fast.</p>
-   </footer>
+    </div>
+  </section>
 
-   <script src="script.js"></script>
+  <!-- Dashboard (Frontend Only) -->
+  <section id="dashboard">
+    <div class="glass-card">
+      <h2>Complaint Dashboard</h2>
+      <p>Total Complaints: <span id="totalComplaints">0</span></p>
+      <p>Most Common Issue: <span id="commonIssue">N/A</span></p>
+      <p>Resolution Rate: <span id="resolutionRate">0%</span></p>
+    </div>
+  </section>
+
+  <!-- Chatbot Placeholder -->
+  <section id="chatbot">
+    <div class="glass-card">
+      <h2>AI Chatbot Assistance</h2>
+      <div class="chat-window">
+        <div class="chat-messages" id="chatMessages">
+          <p><strong>Bot:</strong> Hello! How can I help you today?</p>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="chatInput" placeholder="Type your message...">
+          <button id="chatSend" class="btn-icon">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Complaint Management System. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
